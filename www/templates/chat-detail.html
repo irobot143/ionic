@@ -1,0 +1,64 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Weather" calss="bar-calm">
+  <ion-content class="padding">
+    <h2>{{city.name}}, {{city.sys.country}}</h2>
+    <div class="list card">
+      <div class="item item-thumbnail-left">
+        <img ng-src="{{'http://openweathermap.org/img/w/'+city.weather[0].icon+'.png'}}"/>
+        <h1>{{city.main.temp+' &#8457;'}}</h1>
+      </div>
+      <div class="item item-body">
+        <div class="row item-divider">
+          <div class="col">Wind</div>
+          <div class="col">{{city.wind.speed}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Cloudiness</div>
+          <div class="col">{{city.weather[0].description}}</div>
+        </div>
+        <div class="row item-divider">
+          <div class="col">Pressure</div>
+          <div class="col">{{city.main.pressure}} hpa</div>
+        </div>
+        <div class="row">
+          <div class="col">Humidity</div>
+          <div class="col">{{city.main.humidity}} &#37;</div>
+        </div>
+        <div class="row item-divider">
+          <div class="col">Geo coords</div>
+          <div class="col">[ {{city.coord.lon+', '+city.coord.lat}} ]</div>
+        </div>
+      </div>
+    </div>
+    <h2>Weather Forecast</h2>
+    <span ng-repeat="day in forcastData.list">
+      <div class="card">
+        <div class="item item-thumbnail-left">
+          <img ng-src="{{'http://openweathermap.org/img/w/'+day.weather[0].icon+'.png'}}"/>
+          <div class="row">
+            <div class="col">Date & Time</div>
+            <div class="col" style="color: #387EF5">{{day.dt_txt}}</div>
+          </div>
+          <div class="row" >
+            <div class="col" >Max Temp</div>
+            <div class="col" style="color: #FFA500">{{day.main.temp_min+' &#8457;'}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Min Temp</div>
+            <div class="col" style="color: ##E7EDFF">{{day.main.temp_max+' &#8457;'}}</div>
+          </div>
+
+        </div>
+      </div>
+    </span>
+  </ion-content>
+
+</ion-view>
+
+
+

@@ -1,0 +1,11 @@
+<ion-view view-title="Cities">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="city in cities" type="item-text-wrap" href="#/tab/cities/{{city._id}}">
+        <h2>{{city.name}}</h2>
+        <p>{{city.country}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
